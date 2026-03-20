@@ -1,9 +1,9 @@
 {
   "Id": "Calloatti.DevNoCtrl",
   "Name": "DevNoCtrl",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "Description": "Reverses building/unlocking logic in Dev Mode. Buildings and unlocks are instant by default; hold Ctrl/Alt to use standard construction sites or science costs.",
-  "MinimumGameVersion": "1.0.0",
+  "MinimumGameVersion": "1.0.12.5",
   "RequiredMods": [{"Id": "Harmony", "MinVersion": "2.4.1"}],
   "OptionalMods": []
 }
