@@ -1,0 +1,43 @@
+<p>DevNoCtrl is a workflow-enhancement mod for Timberborn modders and map developers. It globally
+inverts the logic of specific &quot;developer modifier keys&quot; (usually Ctrl, Alt, or Shift) used by the
+game's internal tools.</p>
+<p>Instead of forcing the user to hold down modifier keys to execute instant/developer actions, this
+mod makes the &quot;instant&quot; actions the default behavior. Holding the modifier key will instead revert
+the tool to its standard, vanilla behavior.</p>
+<h3 id="how-it-works-under-the-hood">How It Works Under the Hood</h3>
+<p>To maintain maximum compatibility and avoid the pitfalls of patching generic base classes (like
+BlockObjectDeletionTool<T>) or internal services, this mod intercepts the input layer directly.</p>
+<p>It uses a single Harmony Postfix on Timberborn.InputSystem.InputService.IsKeyHeld(string keyId).</p>
+<p>If Dev Mode is currently active (CrashSceneLoader.DevModeEnabled is true), the patch intercepts
+queries for specific string IDs and applies a logical NOT (!) to the result.</p>
+<h3 id="intercepted-input-ids">Intercepted Input IDs</h3>
+<p>The mod specifically targets and inverts the following internal keybind IDs:
+Building &amp; Tech Tree:
+PlaceFinished: Makes the building placement tool spawn finished buildings instantly by default
+instead of construction sites.
+InstantUnlock: Makes clicking locked items in the tech tree unlock them instantly for free,
+bypassing the science cost and confirmation dialog.</p>
+<h3 id="deletion-demolition">Deletion &amp; Demolition</h3>
+<p>SkipDeleteConfirmation: Bypasses the &quot;Are you sure?&quot; confirmation dialog when deleting objects by
+default.
+DontRecoverGoods: Causes deleted buildings to instantly vanish without spawning leftover
+recoverable material boxes on the ground.</p>
+<h3 id="agriculture-planting">Agriculture &amp; Planting</h3>
+<p>PlantGrown: Forces the planting tool (or brush) to place fully mature plants by default.
+PlantSpawned: Forces the planting tool to place the default un-grown prefab.
+PlantWithYield: Forces the planting tool to place plants that are immediately at maximum yield and
+ready for harvest.</p>
+<h3 id="safety-compatibility">Safety &amp; Compatibility</h3>
+<p>Vanilla Safe: The patch explicitly checks CrashSceneLoader.DevModeEnabled. If Dev Mode is toggled
+off, the patch instantly returns the unmodified boolean. It is 100% safe to leave enabled during
+standard survival gameplay.
+Mod Compatible: Because it intercepts InputService.IsKeyHeld, it automatically applies to any
+custom tools or mods that rely on these standard Timberborn Dev Mode key strings.
+Highly Performant: The patch does not use Reflection (AccessTools) at runtime to fetch private
+fields or internal methods, resulting in zero overhead during block placement or deletion loops.</p>
+<hr />
+<p><a href="https://steamcommunity.com/sharedfiles/filedetails/?id=3682179025">Mods on Steam</a></p>
+<p><a href="https://mod.io/u/calloatti/?_sort=name">Mods on mod-dot-io</a></p>
+<p><a href="https://github.com/search?q=owner%3Acalloatti+sort%3Aname-asc+%22Timberborn+Mod%22&amp;type=repositories">Mods on Github</a></p>
+<p><a href="https://github.com/calloatti/ModZips">Mod zip files</a></p>
+

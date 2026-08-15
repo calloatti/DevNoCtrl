@@ -1,0 +1,1 @@
+Reverses building/unlocking logic in Dev Mode. Buildings and unlocks are instant by default; hold Ctrl/Alt to use standard construction sites or science costs.
