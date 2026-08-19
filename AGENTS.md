@@ -19,3 +19,8 @@ Inverts Dev Mode key modifiers so that Instant actions (PlaceFinished, InstantUn
 |---|---|
 | `DevNoCtrl.cs` | `IModStarter` entry point + `InputService.IsKeyHeld` inversion patch |
 | `DevSpawnOnBuildings.cs` | Dev spawn-on-buildings helper |
+
+## Hard Rule
+DO NOT EVER TOUCH THE DEPLOY FOLDER.
+
+BUILD DOES EVERYTHING, NEVER EVER MESS WITH THE DEPLOY PROCESS.

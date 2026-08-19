@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System.Linq;
 using Timberborn.Beavers;
 using Timberborn.BeaversUI;
@@ -16,7 +16,7 @@ using UnityEngine;
 namespace Calloatti.DevNoCtrl
 {
   [HarmonyPatch(typeof(BeaverGeneratorTool), "PlaceBeavers")]
-  public static class BeaverGeneratorTool_PlaceBeavers_Patch
+  public static class DevSpawnOnBuildingsPatches_BeaverGeneratorTool
   {
     public static bool Prefix(
         bool isChild,
@@ -67,7 +67,7 @@ namespace Calloatti.DevNoCtrl
   }
 
   [HarmonyPatch(typeof(BotGeneratorTool), "PlaceBots")]
-  public static class BotGeneratorTool_PlaceBots_Patch
+  public static class DevSpawnOnBuildingsPatches_BotGeneratorTool
   {
     public static bool Prefix(
         int count,

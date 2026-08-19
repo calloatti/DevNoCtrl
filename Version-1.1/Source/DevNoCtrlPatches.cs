@@ -1,23 +1,10 @@
-﻿using HarmonyLib;
+using HarmonyLib;
 using System;
-using System.Reflection;
 using Timberborn.ErrorReporting;
 using Timberborn.InputSystem;
-using Timberborn.ModManagerScene;
 
 namespace Calloatti.DevNoCtrl
 {
-  public class DevNoCtrl : IModStarter
-  {
-    private const string HarmonyId = "com.calloatti.devnoctrl";
-
-    public void StartMod(IModEnvironment modEnvironment)
-    {
-      var harmony = new Harmony(HarmonyId);
-      harmony.PatchAll(Assembly.GetExecutingAssembly());
-    }
-  }
-
   // ==============================================================================
   // ULTIMATE PATCH: Inverts Dev Mode modifier keys universally
   // ==============================================================================
